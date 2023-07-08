@@ -1,0 +1,6 @@
+HomePage Oluşturulacak
+Login/SignUp Sayfaları Oluşturulacak
+Profilim Ekranı
+Harcama Ekle Ekranı
+Harcama Silme Ekranı
+MyWalletGraphs Ekranı
