@@ -26,8 +26,31 @@ namespace WalletGraphs.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult myWalletPage(int UserId)
+        {
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult Login()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(User unvalidatedUser)
+        {
+
+            
+                User user = dbContext.Users.FirstOrDefault(u => u.Email == unvalidatedUser.Email);
+                if (user.Password == unvalidatedUser.Password)
+                {
+                    return RedirectToAction("myWalletPage", user.UserId);
+                }
+            
+                
+            TempData["status"] = "Email or Password is Incorrect";
             return View();
         }
 

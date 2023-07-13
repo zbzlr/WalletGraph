@@ -1,9 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model User
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
 
+@if (TempData["status"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["status"]
+    </div>
+}
 
 <!-- Section: Design Block -->
 <style>
@@ -32,17 +39,19 @@
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="card">
                         <div class="card-body py-5 px-md-5">
-                            <form>
+                            <form asp-controller="Home" asp-action="Login" method="post">
                                 <!-- Email input -->
                                 <div class="form-outline mb-4">
-                                    <input type="email" id="form2Example1" class="form-control" />
+                                    <input asp-for="Email" type="email" id="form2Example1" class="form-control" />
                                     <label class="form-label" for="form2Example1">Email address</label>
+                                    <span style="color:red" asp-validation-for="Email"></span>
                                 </div>
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password" id="form2Example2" class="form-control" />
+                                    <input asp-for="Password" type="password" id="form2Example2" class="form-control" />
                                     <label class="form-label" for="form2Example2">Password</label>
+                                    <span style="color:red" asp-validation-for="Password"></span>
                                 </div>
 
                                 <!-- 2 column grid layout for inline styling -->
@@ -62,7 +71,7 @@
                                 </div>
 
                                 <!-- Submit button -->
-                                <button  type="button" class="btn btn-primary btn-block mb-4" id="submit-button" >Sign in</button>
+                                <button  type="submit" class="btn btn-primary btn-block mb-4" id="submit-button" >Log in</button>
 
                             </form>
                         </div>
