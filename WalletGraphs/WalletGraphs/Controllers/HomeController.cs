@@ -10,7 +10,7 @@ namespace WalletGraphs.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly AppDbContext dbContext;
 
-        public HomeController(ILogger<HomeController> logger, AppDbContext dbContext = null)
+        public HomeController(ILogger<HomeController> logger, AppDbContext dbContext)
         {
             _logger = logger;
             this.dbContext = dbContext;
@@ -63,6 +63,21 @@ namespace WalletGraphs.Controllers
         {
             
             return View();
+        }
+
+        [AcceptVerbs("GET","POST")]
+        public IActionResult HasEmail(string Email)
+        {
+            var _email = dbContext.Users.Any(u => u.Email == Email);
+
+            if(_email)
+            {
+                return Json("Email has been registered before");
+            }
+            else
+            {
+                return Json(true);
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

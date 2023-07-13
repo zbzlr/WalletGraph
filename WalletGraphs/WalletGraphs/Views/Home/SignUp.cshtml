@@ -14,14 +14,14 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script>
-        function validatePasswords() {
+        function validatePasswords(event) {
             var pass1 = document.getElementById("form3Example4").value;
             var pass2 = document.getElementById("form3Example5").value;
-            if (!pass1 == pass2) {
+            if (pass1 != pass2) {
                 alert("Passwords Did Not Match");
-                return false;
+                event.preventDefault();
             }
-            return true;
+     
         }
         </script>
 }
@@ -50,7 +50,7 @@
                     <div class="card">
                         <div class="card-body py-5 px-md-5">
 
-                            <form asp-controller="Home" asp-action="Register" method="post">
+                            <form asp-controller="Home" asp-action="Register" method="post" onsubmit="validatePasswords(event);">
                                 <!-- 2 column grid layout with text inputs for the first and last names -->
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
@@ -90,7 +90,7 @@
                                 </div>
 
                                 <!-- Submit button -->
-                                <button onclick="return validatePasswords();" type="submit" class="btn btn-primary btn-block mb-4" id="submit-button">
+                                <button type="submit" class="btn btn-primary btn-block mb-4" id="submit-button">
                                     SignUp
                                 </button>  
                             </form>

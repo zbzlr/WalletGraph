@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace WalletGraphs.Models
 {
@@ -16,6 +17,7 @@ namespace WalletGraphs.Models
         public string? Adress { get; set; }
 
         [Required]
+        [Remote(action:"hasEmail",controller:"Home")]
         public string Email { get; set; }
 
         [Required]
