@@ -1,6 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@if (TempData["status"] != null)
+{
+    <div class="alert alert-info" role="alert">
+        @TempData["status"]
+    </div>
+}
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>

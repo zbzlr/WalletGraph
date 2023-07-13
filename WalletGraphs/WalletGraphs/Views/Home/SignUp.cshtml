@@ -1,9 +1,7 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+@model User
 <!-- Section: Design Block -->
+
 <style>
     #submit-button {
         display: block;
@@ -11,6 +9,28 @@
         width: 30%;
     }
 </style>
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        function validatePasswords() {
+            var pass1 = document.getElementById("form3Example4").value;
+            var pass2 = document.getElementById("form3Example5").value;
+            if (!pass1 == pass2) {
+                alert("Passwords Did Not Match");
+                return false;
+            }
+            return true;
+        }
+        </script>
+}
+
+@if(TempData["status"] != null)
+{
+    <div>@TempData["status"]</div>
+}
+
 <section class="">
     <!-- Jumbotron -->
     <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
@@ -29,48 +49,52 @@
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="card">
                         <div class="card-body py-5 px-md-5">
-                            <form>
+
+                            <form asp-controller="Home" asp-action="Register" method="post">
                                 <!-- 2 column grid layout with text inputs for the first and last names -->
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" id="form3Example1" class="form-control" />
+                                            <input asp-for="Name" type="text" id="form3Example1" class="form-control" />
                                             <label class="form-label" for="form3Example1">First name</label>
+                                            <span style="color:red" asp-validation-for="Name"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" id="form3Example2" class="form-control" />
+                                            <input asp-for="Surname" type="text" id="form3Example2" class="form-control" />
                                             <label class="form-label" for="form3Example2">Last name</label>
+                                                <span style="color:red" asp-validation-for="Surname"></span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Email input -->
                                 <div class="form-outline mb-4">
-                                    <input type="email" id="form3Example3" class="form-control" />
+                                    <input asp-for="Email" type="email" id="form3Example3" class="form-control" />
                                     <label class="form-label" for="form3Example3">Email address</label>
+                                        <span style="color:red" asp-validation-for="Email"></span>
                                 </div>
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password" id="form3Example4" class="form-control" />
+                                    <input asp-for="Password" type="password" id="form3Example4" class="form-control" />
                                     <label class="form-label" for="form3Example4">Password</label>
+                                        <span style="color:red" asp-validation-for="Password"></span>
                                 </div>
 
                                 <!-- Confirm Password input -->
                                 <div class="form-outline mb-4">
                                     <input type="password" id="form3Example5" class="form-control" />
-                                    <label class="form-label" for="form3Example4">Confirm Password</label>
+                                    <label class="form-label" for="form3Example5">Confirm Password</label>
                                 </div>
 
                                 <!-- Submit button -->
-                                <button type="submit" class="btn btn-primary btn-block mb-4" id="submit-button">
+                                <button onclick="return validatePasswords();" type="submit" class="btn btn-primary btn-block mb-4" id="submit-button">
                                     SignUp
-                                </button>
-
-                                
+                                </button>  
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -80,3 +104,7 @@
     <!-- Jumbotron -->
 </section>
 <!-- Section: Design Block -->
+
+
+
+

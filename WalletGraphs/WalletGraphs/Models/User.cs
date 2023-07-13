@@ -1,27 +1,31 @@
-﻿namespace WalletGraphs.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WalletGraphs.Models
 {
     public class User
     {
+
+        public ICollection<Expenditure>? Expenditures { get; set; }
         public int UserId { get; set; }
+
+        [Required]
         public string Name { get; set; }
+        
+        [Required]
         public string Surname { get; set; }
         public string? Adress { get; set; }
+
+        [Required]
         public string Email { get; set; }
 
-        public ICollection<Expenditure> Expenditures { get; set; }
+        [Required]
+        public string Password { get; set; }
 
-        public User(String Name,String Surname)
+       
+
+        public User()
         {
-                this.Name = Name;
-                this.Surname = Surname;
-                Expenditures = new List<Expenditure>();
-        }
-        public User(String Name, String Surname,String Adress)
-        {
-                this.Name = Name;
-                this.Surname = Surname;
-                this.Adress = Adress;
-                Expenditures = new List<Expenditure>();
+                
         }
     }
 }
