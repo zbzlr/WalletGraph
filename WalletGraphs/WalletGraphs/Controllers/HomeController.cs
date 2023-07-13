@@ -41,15 +41,15 @@ namespace WalletGraphs.Controllers
         [HttpPost]
         public IActionResult Login(User unvalidatedUser)
         {
-
-            
+            if (dbContext.Users.Any(u => u.Email == unvalidatedUser.Email))
+            {
                 User user = dbContext.Users.FirstOrDefault(u => u.Email == unvalidatedUser.Email);
                 if (user.Password == unvalidatedUser.Password)
                 {
                     return RedirectToAction("myWalletPage", user.UserId);
                 }
+            }
             
-                
             TempData["status"] = "Email or Password is Incorrect";
             return View();
         }
