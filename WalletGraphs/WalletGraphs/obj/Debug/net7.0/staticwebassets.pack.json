@@ -5,6 +5,54 @@
       "PackagePath": "staticwebassets\\WalletGraphs.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\css\\ie9.css",
+      "PackagePath": "staticwebassets\\assets\\css\\ie9.css"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\css\\main.css",
+      "PackagePath": "staticwebassets\\assets\\css\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\fonts\\fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\fonts\\fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.woff"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\fonts\\fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\js\\ie\\html5shiv.js",
+      "PackagePath": "staticwebassets\\assets\\js\\ie\\html5shiv.js"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\js\\ie\\respond.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\ie\\respond.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\js\\main.js",
+      "PackagePath": "staticwebassets\\assets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\js\\skel.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\skel.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\js\\util.js",
+      "PackagePath": "staticwebassets\\assets\\js\\util.js"
+    },
+    {
       "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
