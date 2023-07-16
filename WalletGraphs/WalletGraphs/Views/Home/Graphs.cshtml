@@ -19,14 +19,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+
 </head>
 <body>
 	<!-- main -->
-	<h1>Stats Block Widget</h1>
+	<h1>Your Wallet Graph</h1>
 	<div class="main box box5 shadow5">
 		<div class="main_left">
-			<h2>January 2016 <span>Stats</span></h2>
-			<canvas id="bar" height="195" width="250" style="width: 250px; height: 195px;"></canvas>
+			<h2>Name Surname <span>Stats</span></h2>
+			<canvas id="bar" height="195" width="250" style="width: 250px; height: 195px"></canvas>
 			<script>
 				var barChartData = {
 					labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon"],
@@ -52,38 +53,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</script>
 		</div>
 		<div class="main_right">
-			<div class="main_right_select">
-				<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
-					<option value="null">Change Settings</option>
-					<option value="null">Settings 1</option>
-					<option value="null">Settings 2</option>
-					<option value="null">Settings 3</option>
-					<option value="null">Settings 4</option>
-				</select>
-			</div>
-			<div class="diagram">
+
+			
+			
+			<div style="margin-top:20%"class="diagram">
 				<canvas id="doughnut" height="200" width="200"></canvas>
-				<h4>1,42K <span>Visitors</span></h4>
+				<h4>Percent <span>(%)</span></h4>
 			</div>
 			<script>
 				var doughnutData = [
 					{
-						value: 98,
-						color: "#45668e",
+						value: 20,
+						color: "#FFA500",
 						highlight: "#1abc9c",
-						label: "Paid"
+						label: "Food & Beverage"
 					},
 					{
-						value: 1,
-						color: "#5d799b",
+						value: 20,
+						color: "#008000",
 						highlight: "#1abc9c",
-						label: "Direct"
+						label: "Housing"
 					},
 					{
-						value: 1,
-						color: "#325279",
+						value: 20,
+						color: "#FF0000",
 						highlight: "#1abc9c",
-						label: "Organic"
+						label: "Transportation"
+					},
+					{
+						value: 20,
+						color: "#800080",
+						highlight: "#1abc9c",
+						label: "Clothing & Accessories"
+					},
+					{
+						value: 20,
+						color: "#FFC0CB",
+						highlight: "#1abc9c",
+						label: "Entertainment & Hobbies"
 					}
 
 				];
@@ -91,9 +98,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData);
 			</script>
 			<ul>
-				<li><i></i>Direct</li>
-				<li><i class="color"></i>Paid</li>
-				<li><i class="color1"></i>Organic</li>
+				<li><i class="color1"></i>Food & Beverage</li>
+				<li><i class="color2"></i>Housing</li>
+				<li><i class="color3"></i>Transportation</li>
+				<li><i class="color4"></i>Clothing & Accessories</li>
+				<li><i class="color5"></i>Entertainment & Hobbies</li>
 			</ul>
 		</div>
 		<div class="clear"> </div>
@@ -103,56 +112,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div style="width:70%;padding:4%;background-color:aquamarine" class="container">
 		<h1 style="text-align:center;margin:auto;">Add New Expenditure</h1>
 		<br />
-	<form  class="row g-3">
-		<div class="col-md-6">
+		<form class="row g-3">
+			<div class="col-md-6">
 				<label for="inputReciever4" class="form-label">Reciever</label>
 				<input type="text" class="form-control" id="inputReciever4">
-		</div>
-		<div class="col-md-6">
+			</div>
+			<div class="col-md-6">
 				<label for="inputAmount" class="form-label">Amount</label>
 				<input type="text" class="form-control" id="inputAmount4">
-		</div>
-		<div class="col-12">
+			</div>
+			<div class="col-12">
 				<label for="inputDescription" class="form-label">Description</label>
-				<input type="text" class="form-control" id="inputDescription" placeholder="1234 Main St">
-		</div>
-
-
-				
-		<div class="col-md-4">
+				<input type="text" class="form-control" id="inputDescription">
+			</div>
+			<div class="col-6">
+				<label for="inputDate" class="form-label">Date</label>
+				<input type="date" class="form-control" id="inputDate">
+			</div>
+			<div class="col-md-6">
 				<label for="inputCategory" class="form-label">Category</label>
 				<select id="inputCategory" class="form-select">
-				<option selected>Choose...</option>
-				<option>...</option>
-			</select>
-		</div>
-			
-		<div class="col-12">
-			<button type="submit" class="btn btn-primary">Sign in</button>
-		</div>
-	</form>
+					<option selected>Choose...</option>
+					<option>Food & Beverage</option>
+					<option>Housing</option>
+					<option>Transportation</option>
+					<option>Clothing & Accessories</option>
+					<option>Entertainment & Hobbies</option>
+				</select>
+			</div>
+			<div class="col-12 d-flex justify-content-center">
+				<button type="submit" class="btn btn-primary" style="width:40%;margin-top:3%">Sign in</button>
+			</div>
+		</form>
 
-
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-		<script>
-			new Choices(document.querySelector(".choices-multiple"));
-		</script>
-		<script>
-			$(function () {
-				$('#datepicker').daterangepicker({
-					singleDatePicker: true,
-					showDropdowns: true,
-					minYear: 1900,
-					maxYear: parseInt(moment().format('YYYY'), 10)
-				});
-			});
-		</script>
 	</div>
 	<!-- //main -->
 </body>
-
-
 </html>

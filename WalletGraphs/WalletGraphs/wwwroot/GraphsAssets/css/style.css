@@ -128,9 +128,10 @@ select#country option {
 }
 .diagram {
 	position: relative;
+	margin-right:35%;
 }
 canvas#doughnut {
-    margin: 0 0 0 2em;
+    margin: 0 0 0 0;
 }
 .main_right ul{
 	padding:1em 0 0;
@@ -149,12 +150,21 @@ canvas#doughnut {
     margin-right: 0.5em;
     display: inline-block;
 }
-.main_right ul li i.color{
-	background: #68809e;
-}
-.main_right ul li i.color1{
-	background: #45668e;
-}
+	.main_right ul li i.color1 {
+		background: #FFA500;
+	}
+	.main_right ul li i.color2 {
+		background: #008000;
+	}
+	.main_right ul li i.color3 {
+		background: #FF0000;
+	}
+	.main_right ul li i.color4 {
+		background: #800080;
+	}
+	.main_right ul li i.color5 {
+		background: #FFC0CB;
+	}
 .shadow1, .shadow2, .shadow3,.shadow4,.shadow5,.shadow6,.shadow7,.shadow8{
   position:relative;
 }
