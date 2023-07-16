@@ -17,6 +17,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type='text/javascript' src="js/jquery-1.11.2.min.js"></script>
 	<link href="~/GraphsAssets/css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
 </head>
 <body>
 	<!-- main -->
@@ -96,27 +98,61 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="clear"> </div>
 	</div>
-	<br/>
-	<div class="row g-3">
-		<div class="col-sm-7">
-			<div class="form-outline">
-				<input type="text" id="form10Example1" class="form-control" />
-				<label class="form-label" for="form10Example1">Name</label>
-			</div>
+	<br />
+
+	<div style="width:70%;padding:4%;background-color:aquamarine" class="container">
+		<h1 style="text-align:center;margin:auto;">Add New Expenditure</h1>
+		<br />
+	<form  class="row g-3">
+		<div class="col-md-6">
+				<label for="inputReciever4" class="form-label">Reciever</label>
+				<input type="text" class="form-control" id="inputReciever4">
 		</div>
-		<div class="col-sm">
-			<div class="form-outline">
-				<input type="text" id="form10Example2" class="form-control" />
-				<label class="form-label" for="form10Example2">Name</label>
-			</div>
+		<div class="col-md-6">
+				<label for="inputAmount" class="form-label">Amount</label>
+				<input type="text" class="form-control" id="inputAmount4">
 		</div>
-		<div class="col-sm">
-			<div class="form-outline">
-				<input type="text" id="form10Example3" class="form-control" />
-				<label class="form-label" for="form10Example3">Name</label>
-			</div>
+		<div class="col-12">
+				<label for="inputDescription" class="form-label">Description</label>
+				<input type="text" class="form-control" id="inputDescription" placeholder="1234 Main St">
 		</div>
+
+
+				
+		<div class="col-md-4">
+				<label for="inputCategory" class="form-label">Category</label>
+				<select id="inputCategory" class="form-select">
+				<option selected>Choose...</option>
+				<option>...</option>
+			</select>
+		</div>
+			
+		<div class="col-12">
+			<button type="submit" class="btn btn-primary">Sign in</button>
+		</div>
+	</form>
+
+
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+		<script>
+			new Choices(document.querySelector(".choices-multiple"));
+		</script>
+		<script>
+			$(function () {
+				$('#datepicker').daterangepicker({
+					singleDatePicker: true,
+					showDropdowns: true,
+					minYear: 1900,
+					maxYear: parseInt(moment().format('YYYY'), 10)
+				});
+			});
+		</script>
 	</div>
 	<!-- //main -->
 </body>
+
+
 </html>
