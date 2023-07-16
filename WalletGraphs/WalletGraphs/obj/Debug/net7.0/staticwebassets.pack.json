@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\WalletGraphs.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\GraphsAssets\\css\\style.css",
+      "PackagePath": "staticwebassets\\GraphsAssets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\GraphsAssets\\js\\Chart.js",
+      "PackagePath": "staticwebassets\\GraphsAssets\\js\\Chart.js"
+    },
+    {
+      "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\GraphsAssets\\js\\jquery-1.11.2.min.js",
+      "PackagePath": "staticwebassets\\GraphsAssets\\js\\jquery-1.11.2.min.js"
+    },
+    {
       "Id": "C:\\Users\\ziyab\\Projects\\C# Projects\\WalletGraphs\\WalletGraphs\\WalletGraphs\\wwwroot\\assets\\css\\font-awesome.min.css",
       "PackagePath": "staticwebassets\\assets\\css\\font-awesome.min.css"
     },

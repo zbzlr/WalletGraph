@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Stats Block Widget Flat Responsive Widget Template :: w3layouts</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Stats Block Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript">
+		addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+			   function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //for-mobile-apps -->
+	<!-- chart -->
+	<script src="~/GraphsAssets/js/Chart.js"></script>
+	<!-- //chart -->
+	<script type='text/javascript' src="js/jquery-1.11.2.min.js"></script>
+	<link href="~/GraphsAssets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<!-- main -->
+	<h1>Stats Block Widget</h1>
+	<div class="main box box5 shadow5">
+		<div class="main_left">
+			<h2>January 2016 <span>Stats</span></h2>
+			<canvas id="bar" height="195" width="250" style="width: 250px; height: 195px;"></canvas>
+			<script>
+				var barChartData = {
+					labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon"],
+					datasets: [
+						{
+							highlightFill: "#45668e",
+							highlightStroke: "#45668e",
+							fillColor: "#1ABC9C",
+							strokeColor: "#1ABC9C",
+							data: [90, 90, 90, 90, 90, 90, 90]
+						},
+						{
+							highlightFill: "#1abc9c",
+							highlightStroke: "#1abc9c",
+							fillColor: "#45668e",
+							strokeColor: "#45668e",
+							data: [90, 85, 75, 65, 75, 85, 90]
+						}
+					]
+
+				};
+				new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+			</script>
+		</div>
+		<div class="main_right">
+			<div class="main_right_select">
+				<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+					<option value="null">Change Settings</option>
+					<option value="null">Settings 1</option>
+					<option value="null">Settings 2</option>
+					<option value="null">Settings 3</option>
+					<option value="null">Settings 4</option>
+				</select>
+			</div>
+			<div class="diagram">
+				<canvas id="doughnut" height="200" width="200"></canvas>
+				<h4>1,42K <span>Visitors</span></h4>
+			</div>
+			<script>
+				var doughnutData = [
+					{
+						value: 98,
+						color: "#45668e",
+						highlight: "#1abc9c",
+						label: "Paid"
+					},
+					{
+						value: 1,
+						color: "#5d799b",
+						highlight: "#1abc9c",
+						label: "Direct"
+					},
+					{
+						value: 1,
+						color: "#325279",
+						highlight: "#1abc9c",
+						label: "Organic"
+					}
+
+				];
+
+				new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData);
+			</script>
+			<ul>
+				<li><i></i>Direct</li>
+				<li><i class="color"></i>Paid</li>
+				<li><i class="color1"></i>Organic</li>
+			</ul>
+		</div>
+		<div class="clear"> </div>
+	</div>
+	<br/>
+	<div class="row g-3">
+		<div class="col-sm-7">
+			<div class="form-outline">
+				<input type="text" id="form10Example1" class="form-control" />
+				<label class="form-label" for="form10Example1">Name</label>
+			</div>
+		</div>
+		<div class="col-sm">
+			<div class="form-outline">
+				<input type="text" id="form10Example2" class="form-control" />
+				<label class="form-label" for="form10Example2">Name</label>
+			</div>
+		</div>
+		<div class="col-sm">
+			<div class="form-outline">
+				<input type="text" id="form10Example3" class="form-control" />
+				<label class="form-label" for="form10Example3">Name</label>
+			</div>
+		</div>
+	</div>
+	<!-- //main -->
+</body>
+</html>
