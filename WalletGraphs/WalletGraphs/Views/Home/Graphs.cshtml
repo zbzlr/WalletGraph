@@ -5,6 +5,10 @@
 	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 }
+
+@{
+	var CategoryPercents = ViewBag.CategoryPercents as List<int>;
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,31 +74,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<script>
 				var doughnutData = [
 					{
-						value: 20,
+						value: @CategoryPercents[0],
 						color: "#FFA500",
 						highlight: "#1abc9c",
 						label: "Food & Beverage"
 					},
 					{
-						value: 20,
+						value: @CategoryPercents[1],
 						color: "#008000",
 						highlight: "#1abc9c",
 						label: "Housing"
 					},
 					{
-						value: 20,
+						value: @CategoryPercents[2],
 						color: "#FF0000",
 						highlight: "#1abc9c",
 						label: "Transportation"
 					},
 					{
-						value: 20,
+						value: @CategoryPercents[3],
 						color: "#800080",
 						highlight: "#1abc9c",
 						label: "Clothing & Accessories"
 					},
 					{
-						value: 20,
+						value: @CategoryPercents[4],
 						color: "#FFC0CB",
 						highlight: "#1abc9c",
 						label: "Entertainment & Hobbies"
@@ -125,12 +129,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<input asp-for="User" type="hidden" name="user" value="@ViewBag.User" />
 			<div class="col-md-6">
 				<label for="inputReciever4" class="form-label">Reciever</label>
-				<input asp-for="Reciever" type="text" class="form-control" id="inputReciever4">
+				<input asp-for="Reciever" type="text" class="form-control" id="inputReciever4" pattern="[A-Za-z]+">
 				<span style="color:red" asp-validation-for="Reciever"></span>
 			</div>
 			<div class="col-md-6">
 				<label for="inputAmount" class="form-label">Amount</label>
-				<input asp-for="Amount" type="text" class="form-control" id="inputAmount4">
+				<input asp-for="Amount" type="text" class="form-control" id="inputAmount4" pattern="[0-9]+">
 				<span style="color:red" asp-validation-for="Amount"></span>
 			</div>
 			<div class="col-12">

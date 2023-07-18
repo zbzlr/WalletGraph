@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 using WalletGraphs.Models;
@@ -119,10 +120,50 @@ namespace WalletGraphs.Controllers
             User user = dbContext.Users.SingleOrDefault(u => u.UserId == userId);
             ViewBag.User = user;
             ViewBag.UserId = userId;
+            ViewBag.CategoryPercents = CalculateCategoryPercents(user);
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		private List<int> CalculateCategoryPercents(User user)
+		{
+			List<string> categories = new List<string> { "Food & Beverage", "Housing", "Transportation", "Clothing & Accessories", "Entertainment & Hobbies" };
+			List<int> categoryAmountSummary = new List<int>(); 
+			List<int> categoryPercents = new List<int>(); 
+			int totalExpenditureAmount = 0; 
+
+			// Calculate total amount for each category
+			foreach (string category in categories)
+			{
+				decimal totalAmount = dbContext.Expenditures
+					.Where(e => e.UserId == user.UserId && e.Category == category)
+					.Sum(e => e.Amount);
+
+				int totalAmountInt = (int)totalAmount; 
+
+				categoryAmountSummary.Add(totalAmountInt); 
+			}
+
+			// Calculate total expenditure amount
+			foreach (int amount in categoryAmountSummary)
+			{
+				totalExpenditureAmount += amount;
+			}
+
+			// Calculate percentage for each category
+			foreach (int categoryTotal in categoryAmountSummary)
+			{
+				int categoryPercent = (int)((decimal)categoryTotal / totalExpenditureAmount * 100);
+				categoryPercents.Add(categoryPercent);
+			}
+
+			return categoryPercents; 
+		}
+
+
+
+
+
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
