@@ -1,4 +1,5 @@
-# WalletGraphThis website is a budget tracking application for personal finance management. Users can track their expenses by categories, create budgets, and manage their financial goals.
+# WalletGraph
+This website is a budget tracking application for personal finance management. Users can track their expenses by categories, create budgets, and manage their financial goals.
 
 The application is developed using ASP.NET Core and Entity Framework Core. It utilizes a SQL database as the backend storage. Users can create accounts and log in to the site.
 
