@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@model Expenditure
+
+
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Stats Block Widget Flat Responsive Widget Template :: w3layouts</title>
@@ -26,7 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<h1>Your Wallet Graph</h1>
 	<div class="main box box5 shadow5">
 		<div class="main_left">
-			<h2>Name Surname <span>Stats</span></h2>
+			<h2>@ViewBag.User.Name @ViewBag.User.Surname <br /> <span>Stats</span></h2>
 			<canvas id="bar" height="195" width="250" style="width: 250px; height: 195px"></canvas>
 			<script>
 				var barChartData = {
@@ -112,26 +115,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div style="width:70%;padding:4%;background-color:aquamarine" class="container">
 		<h1 style="text-align:center;margin:auto;">Add New Expenditure</h1>
 		<br />
-		<form class="row g-3">
+		<form class="row g-3" asp-controller="Home" asp-action="AddNewExpenditure" method="post">
+
+			<input asp-for="UserId" type="hidden" name="userId" value="@ViewBag.UserId" />
+			<input asp-for="User" type="hidden" name="user" value="@ViewBag.User" />
 			<div class="col-md-6">
 				<label for="inputReciever4" class="form-label">Reciever</label>
-				<input type="text" class="form-control" id="inputReciever4">
+				<input asp-for="Reciever" type="text" class="form-control" id="inputReciever4">
 			</div>
 			<div class="col-md-6">
 				<label for="inputAmount" class="form-label">Amount</label>
-				<input type="text" class="form-control" id="inputAmount4">
+				<input asp-for="Amount" type="text" class="form-control" id="inputAmount4">
 			</div>
 			<div class="col-12">
 				<label for="inputDescription" class="form-label">Description</label>
-				<input type="text" class="form-control" id="inputDescription">
+				<input asp-for="Description" type="text" class="form-control" id="inputDescription">
 			</div>
 			<div class="col-6">
 				<label for="inputDate" class="form-label">Date</label>
-				<input type="date" class="form-control" id="inputDate">
+				<input asp-for="Date" type="date" class="form-control" id="inputDate">
 			</div>
 			<div class="col-md-6">
 				<label for="inputCategory" class="form-label">Category</label>
-				<select id="inputCategory" class="form-select">
+				<select asp-for="Category" id="inputCategory" class="form-select">
 					<option selected>Choose...</option>
 					<option>Food & Beverage</option>
 					<option>Housing</option>

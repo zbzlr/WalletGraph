@@ -9,17 +9,11 @@
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
         public string Category { get; set; }
+        public string Reciever { get; set; }
 
-        public Expenditure(int UserId, string Description, decimal Amount, string Category)
+        public Expenditure()
         {
-            Random random = new Random();
-            ExpenditureId = random.Next();
-            this.UserId = UserId;
-            this.Description = Description;
-            this.Amount = Amount;
-            this.Category = Category;
-            Date = DateTime.Now;
-
+                
         }
     }
 }

@@ -46,8 +46,8 @@ namespace WalletGraphs.Controllers
                 User user = dbContext.Users.FirstOrDefault(u => u.Email == unvalidatedUser.Email);
                 if (user.Password == unvalidatedUser.Password)
                 {
-                    return RedirectToAction("myWalletPage", user.UserId);
-                }
+					return RedirectToAction("Graphs", new { userId = user.UserId });
+				}
             }
             
             TempData["status"] = "Email or Password is Incorrect";
@@ -103,8 +103,20 @@ namespace WalletGraphs.Controllers
             }
         }
 
-        public IActionResult Graphs()
+        [HttpPost]
+        public IActionResult AddNewExpenditure(Expenditure expenditure)
         {
+            dbContext.Add(expenditure);
+            dbContext.SaveChanges();
+			return RedirectToAction("Graphs", new { userId = expenditure.UserId });
+		}
+
+        [HttpGet]
+        public IActionResult Graphs(int? userId)
+        {
+            User user = dbContext.Users.SingleOrDefault(u => u.UserId == userId);
+            ViewBag.User = user;
+            ViewBag.UserId = userId;
             return View();
         }
 
