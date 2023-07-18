@@ -69,8 +69,6 @@ namespace WalletGraphs.Controllers
                 foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
                 {
                     string errorMessage = error.ErrorMessage;
-                    // Hata mesajlarını işleyin veya loglayın
-
                     TempData["status"] = errorMessage;
                 }
                 
@@ -106,8 +104,12 @@ namespace WalletGraphs.Controllers
         [HttpPost]
         public IActionResult AddNewExpenditure(Expenditure expenditure)
         {
-            dbContext.Add(expenditure);
-            dbContext.SaveChanges();
+            if (ModelState.IsValid)
+            {
+				dbContext.Add(expenditure);
+				dbContext.SaveChanges();
+			}
+            
 			return RedirectToAction("Graphs", new { userId = expenditure.UserId });
 		}
 

@@ -1,6 +1,10 @@
 ﻿@model Expenditure
 
+@section Scripts{
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,29 +126,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-6">
 				<label for="inputReciever4" class="form-label">Reciever</label>
 				<input asp-for="Reciever" type="text" class="form-control" id="inputReciever4">
+				<span style="color:red" asp-validation-for="Reciever"></span>
 			</div>
 			<div class="col-md-6">
 				<label for="inputAmount" class="form-label">Amount</label>
 				<input asp-for="Amount" type="text" class="form-control" id="inputAmount4">
+				<span style="color:red" asp-validation-for="Amount"></span>
 			</div>
 			<div class="col-12">
 				<label for="inputDescription" class="form-label">Description</label>
 				<input asp-for="Description" type="text" class="form-control" id="inputDescription">
+				<span style="color:red" asp-validation-for="Description"></span>
 			</div>
 			<div class="col-6">
 				<label for="inputDate" class="form-label">Date</label>
 				<input asp-for="Date" type="date" class="form-control" id="inputDate">
+				<span style="color:red" asp-validation-for="Date"></span>
 			</div>
 			<div class="col-md-6">
 				<label for="inputCategory" class="form-label">Category</label>
 				<select asp-for="Category" id="inputCategory" class="form-select">
-					<option selected>Choose...</option>
-					<option>Food & Beverage</option>
-					<option>Housing</option>
-					<option>Transportation</option>
-					<option>Clothing & Accessories</option>
-					<option>Entertainment & Hobbies</option>
+					<option value="">Choose...</option>
+					<option value="Food & Beverage">Food & Beverage</option>
+					<option value="Housing">Housing</option>
+					<option value="Transportation">Transportation</option>
+					<option value="Clothing & Accessories">Clothing & Accessories</option>
+					<option value="Entertainment & Hobbies">Entertainment & Hobbies</option>
 				</select>
+				<span style="color:red" asp-validation-for="Category"></span>
 			</div>
 			<div class="col-12 d-flex justify-content-center">
 				<button type="submit" class="btn btn-primary" style="width:40%;margin-top:3%">Sign in</button>
