@@ -105,12 +105,22 @@ namespace WalletGraphs.Controllers
         [HttpPost]
         public IActionResult AddNewExpenditure(Expenditure expenditure)
         {
-            if (ModelState.IsValid)
-            {
+			User user = dbContext.Users.SingleOrDefault(u => u.UserId == expenditure.UserId);
+			expenditure.User = user;
+
+			ModelState.Remove("User");
+
+			if (ModelState.IsValid)
+			{
 				dbContext.Add(expenditure);
 				dbContext.SaveChanges();
 			}
-            
+			else
+			{
+				var errors = ModelState.SelectMany(x => x.Value.Errors.Select(p => p.ErrorMessage)).ToList();
+				return BadRequest(new { errors });
+			}
+
 			return RedirectToAction("Graphs", new { userId = expenditure.UserId });
 		}
 

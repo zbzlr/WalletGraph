@@ -126,7 +126,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<form class="row g-3" asp-controller="Home" asp-action="AddNewExpenditure" method="post">
 
 			<input asp-for="UserId" type="hidden" name="userId" value="@ViewBag.UserId" />
-			<input asp-for="User" type="hidden" name="user" value="@ViewBag.User" />
 			<div class="col-md-6">
 				<label for="inputReciever4" class="form-label">Reciever</label>
 				<input asp-for="Reciever" type="text" class="form-control" id="inputReciever4" pattern="[A-Za-z]+">
