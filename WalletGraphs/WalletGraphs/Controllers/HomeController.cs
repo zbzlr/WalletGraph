@@ -159,6 +159,11 @@ namespace WalletGraphs.Controllers
 				totalExpenditureAmount += amount;
 			}
 
+            if(totalExpenditureAmount == 0)
+            {
+                return new List<int> {0,0,0,0,0};
+            }
+
 			// Calculate percentage for each category
 			foreach (int categoryTotal in categoryAmountSummary)
 			{
