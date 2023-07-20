@@ -131,6 +131,8 @@ namespace WalletGraphs.Controllers
             ViewBag.User = user;
             ViewBag.UserId = userId;
             ViewBag.CategoryPercents = CalculateCategoryPercents(user);
+            ViewBag.ExpensesByDays = DetermineExpensesByDays(user);
+
             return View();
         }
 
@@ -148,16 +150,15 @@ namespace WalletGraphs.Controllers
 					.Where(e => e.UserId == user.UserId && e.Category == category)
 					.Sum(e => e.Amount);
 
-				int totalAmountInt = (int)totalAmount; 
+				int totalAmountInt = (int)totalAmount;
 
-				categoryAmountSummary.Add(totalAmountInt); 
+				categoryAmountSummary.Add(totalAmountInt);
 			}
 
-			// Calculate total expenditure amount
-			foreach (int amount in categoryAmountSummary)
-			{
-				totalExpenditureAmount += amount;
-			}
+
+            totalExpenditureAmount = CalculateSumOfExpenses(categoryAmountSummary);
+			
+            ViewBag.Total = totalExpenditureAmount;
 
             if(totalExpenditureAmount == 0)
             {
@@ -173,6 +174,58 @@ namespace WalletGraphs.Controllers
 
 			return categoryPercents; 
 		}
+
+        private int CalculateSumOfExpenses(List<int> expenses)
+        {
+            int totalExpenditureAmount = 0;
+			foreach (int amount in expenses)
+			{
+				totalExpenditureAmount += amount;
+			}
+            return totalExpenditureAmount;
+		}
+
+		public class ExpenseByDay
+		{
+			public DayOfWeek Day { get; set; }
+			public int TotalExpense { get; set; }
+		}
+
+		private List<ExpenseByDay> DetermineExpensesByDays(User user)
+		{
+			var expenses = dbContext.Expenditures
+		.Where(e => e.UserId == user.UserId)
+		.ToList(); 
+
+			var expensesByDays = expenses
+				.GroupBy(e => e.Date.DayOfWeek)
+				.Select(g => new ExpenseByDay
+				{
+					Day = g.Key,
+					TotalExpense = (int)g.Sum(e => e.Amount)
+				})
+				.ToList();
+
+			for (int i = 0; i < 7; i++)
+			{
+				var dayOfWeek = (DayOfWeek)i;
+
+				if (!expensesByDays.Any(e => e.Day == dayOfWeek))
+				{
+					expensesByDays.Add(new ExpenseByDay
+					{
+						Day = dayOfWeek,
+						TotalExpense = 0
+					});
+				}
+			}
+
+			expensesByDays = expensesByDays.OrderBy(e => e.Day).ToList();
+
+			return expensesByDays;
+		}
+
+
 
 
 

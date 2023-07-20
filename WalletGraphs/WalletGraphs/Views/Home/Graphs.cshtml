@@ -1,4 +1,5 @@
-﻿@model Expenditure
+﻿@using static WalletGraphs.Controllers.HomeController;
+@model Expenditure
 
 @section Scripts{
 	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
@@ -7,6 +8,8 @@
 
 @{
 	var CategoryPercents = ViewBag.CategoryPercents as List<int>;
+	var ExpensesByDays = ViewBag.ExpensesByDays as List<ExpenseByDay>;
+
 }
 <!DOCTYPE html>
 <html>
@@ -36,26 +39,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<h1>Your Wallet Graph</h1>
 	<div class="main box box5 shadow5">
 		<div class="main_left">
-			<h2>@ViewBag.User.Name @ViewBag.User.Surname <br /> <span>Stats</span></h2>
+			<h2>@ViewBag.User.Name @ViewBag.User.Surname <br /> <span>Total Expense:@ViewBag.Total $</span></h2>
+			
 			<canvas id="bar" height="195" width="250" style="width: 250px; height: 195px"></canvas>
 			<script>
 				var barChartData = {
-					labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon"],
+					labels: ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
 					datasets: [
 						{
 							highlightFill: "#45668e",
 							highlightStroke: "#45668e",
 							fillColor: "#1ABC9C",
 							strokeColor: "#1ABC9C",
-							data: [90, 90, 90, 90, 90, 90, 90]
+							data: [@ExpensesByDays[0].TotalExpense, @ExpensesByDays[1].TotalExpense, @ExpensesByDays[2].TotalExpense, @ExpensesByDays[3].TotalExpense, @ExpensesByDays[4].TotalExpense, @ExpensesByDays[5].TotalExpense, @ExpensesByDays[6].TotalExpense]
 						},
-						{
-							highlightFill: "#1abc9c",
-							highlightStroke: "#1abc9c",
-							fillColor: "#45668e",
-							strokeColor: "#45668e",
-							data: [90, 85, 75, 65, 75, 85, 90]
-						}
+	
 					]
 
 				};
@@ -64,7 +62,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="main_right">
 
-			
 			
 			<div style="margin-top:20%"class="diagram">
 				<canvas id="doughnut" height="200" width="200"></canvas>
