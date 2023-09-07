@@ -9,7 +9,7 @@
 @{
 	var CategoryPercents = ViewBag.CategoryPercents as List<int>;
 	var ExpensesByDays = ViewBag.ExpensesByDays as List<ExpenseByDay>;
-
+	var Expenditures = ViewBag.expenditures as List<Expenditure>;
 }
 <!DOCTYPE html>
 <html>
@@ -147,29 +147,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<thead>
 										<tr>
 											<th scope="col">#</th>
-											<th scope="col">First</th>
-											<th scope="col">Last</th>
+											<th scope="col">Expenditure Id</th>
+											<th scope="col">Amount</th>
+											<th scope="col">Reciever</th>
+											<th scope="col">Category</th>
+											<th scope="col">Description</th>
+
 											
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>Mark</td>
-											<td>Otto</td>
+
+										
+										@foreach(Expenditure expenditure in Expenditures)
+										{
+											<tr>
+												<th scope="row"></th>
+												<td>@expenditure.ExpenditureId </td>
+												<td>@expenditure.Amount</td>
+												<td>@expenditure.Reciever</td>
+												<td>@expenditure.Category</td>
+												<td>@expenditure.Description</td>
+
+											</tr>
 											
-										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											
-										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td colspan="2">Larry the Bird</td>
-											
-										</tr>
+										}
+										
+										
 									</tbody>
 								</table>
 							</div>

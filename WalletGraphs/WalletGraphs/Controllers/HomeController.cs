@@ -132,7 +132,10 @@ namespace WalletGraphs.Controllers
             ViewBag.UserId = userId;
             ViewBag.CategoryPercents = CalculateCategoryPercents(user);
             ViewBag.ExpensesByDays = DetermineExpensesByDays(user);
-
+			List<Expenditure> userExpenditures = dbContext.Expenditures
+	                                            .Where(e => e.UserId == userId)
+	                                            .ToList();
+			ViewBag.expenditures = userExpenditures;
             return View();
         }
 
