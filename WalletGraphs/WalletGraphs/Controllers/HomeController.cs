@@ -10,11 +10,13 @@ namespace WalletGraphs.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly AppDbContext dbContext;
+        private readonly IEmailSender _emailSender;
 
-        public HomeController(ILogger<HomeController> logger, AppDbContext dbContext)
+        public HomeController(ILogger<HomeController> logger, AppDbContext dbContext,IEmailSender emailSender)
         {
             _logger = logger;
             this.dbContext = dbContext;
+            _emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -25,6 +27,20 @@ namespace WalletGraphs.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Email(int UserId)
+        {
+            ViewBag.User = dbContext.Users.FirstOrDefault<User>(x => x.UserId == UserId);
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SendEmail(Email email)
+        {
+            _emailSender.SendEmail(email.message,email.subject,"ziyabozlar2@gmail.com");
+            return RedirectToAction("Email");
         }
 
         [HttpGet]

@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ziyab\Projects\C# Projects\WalletGraphs\WalletGraphs\WalletGraphs
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/ziyab/Projects/C\# Projects/WalletGraphs/WalletGraphs/WalletGraphs/Views/Home/Email.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ziyab/Projects/C\# Projects/WalletGraphs/WalletGraphs/WalletGraphs/Views/Home/Graphs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHcmFwaHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -13,6 +13,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 }
 );
 
+builder.Services.AddTransient<IEmailSender, EmailSenderService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,0 +1,20 @@
+﻿@model Email
+
+@{
+    User user = ViewBag.User;
+}
+
+<form asp-controller="Home" asp-action="SendEmail" method="post">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Subject</label>
+        <input asp-for="subject" type="text" />
+        
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+        <input asp-for="message" type="text" />
+        
+    </div>
+    <button>Send</button>
+    
+</form>
